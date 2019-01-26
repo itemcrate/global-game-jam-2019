@@ -19,3 +19,6 @@ func show_alert():
 
 func _on_AlertTimer_timeout():
 	$AnimationPlayer/AlertContainer/AlertLabel.hide()
+
+func _physics_process(delta):
+	update_progress()
