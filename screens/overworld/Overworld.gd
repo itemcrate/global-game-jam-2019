@@ -2,7 +2,6 @@ extends Node
 
 onready var obstacle_path = "res://entities/obstacle/obstacle.tscn"
 onready var tilemap = $TileMap
-
 onready var wave = $wave
 
 func _ready():
