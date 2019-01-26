@@ -12,6 +12,14 @@ func _draw():
 func _ready():
 	set_physics_process(true)
 
+func _input(event):
+	# HIDING
+	if event.is_action_pressed("ui_select"):
+		if (current_state == STATE.MOVE):
+			current_state = STATE.HIDE
+		else:
+			current_state = STATE.MOVE
+
 func _physics_process(delta):
 	# MOVEMENT
 	if Input.is_action_pressed("ui_down"):
@@ -33,10 +41,3 @@ func _physics_process(delta):
 		if current_state == STATE.HIDE:
 			return
 		self.position.y -= 1
-
-	# HIDING
-	if Input.is_action_pressed("ui_select"):
-		current_state = STATE.HIDE
-
-	elif Input.is_action_just_released("ui_select"):
-		current_state = STATE.MOVE
