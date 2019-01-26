@@ -9,7 +9,7 @@ func _ready():
 	set_goal_label("Purple!")
 
 func update_progress(score):
-	$MarginContainer/HBoxContainer/ProgressLabel.text = str(score)
+	$Container/ProgressLabel.text = str(score)
 
 func set_goal_label(text):
-	$MarginContainer/HBoxContainer/GoalLabel.text = str(text)
+	$Container/GoalLabel.text = str(text)
