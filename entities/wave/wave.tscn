@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://wave.gd" type="Script" id=1]
+[ext_resource path="res://entities/wave/wave.gd" type="Script" id=1]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 256, 224 )
 
-[node name="wave" type="Area2D"]
+[node name="wave" type="Area2D" index="0"]
 
 position = Vector2( 256, 672 )
 input_pickable = true
