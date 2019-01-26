@@ -8,7 +8,7 @@ onready var tween = $waveTween
 # Temporary draw override for visual representation of wave
 # Remove this when wave assets are added
 func _draw():
-	draw_rect(Rect2(Vector2(0,0), Vector2(512, 448)), Color("ffffff"))
+	draw_rect(Rect2(Vector2(0,-224), Vector2(512, 448)), Color("ffffff"))
 
 func _ready():
 	pass
@@ -20,17 +20,15 @@ func ebb():
 
 func flow():
 	current_state = STATE.FLOW
-	tween.interpolate_property(self, "position", self.position, Vector2(0, 0), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.interpolate_property(self, "position", self.position, Vector2(0, 224), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 
 # SIGNALS
 
 func _on_wave_body_entered(body):
-	# When character is created, update this functionality to:
-	# - Check if character is hiding in shell or not
-	# - If not hiding, sweep them away
-	# - Otherwise, leave them alone
-	print(body)
+	if body.is_in_group("player"):
+		if body.current_state != body.STATE.HIDE:
+			print("Bye crab")
 
 func _on_waveTween_tween_completed(object, key):
 	if current_state == STATE.FLOW:

@@ -3,7 +3,7 @@ extends Node
 onready var wave = $wave
 
 func _ready():
-	pass
+	wave.flow()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
