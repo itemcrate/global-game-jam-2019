@@ -1,8 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entities/HUD/HUD.gd" type="Script" id=1]
 
-[node name="HUDLayer" type="Node"]
+[sub_resource type="Animation" id=1]
+
+resource_name = "AlertAnimation"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/AlertContainer/AlertLabel:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ), Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ) ]
+}
+
+[node name="HUDLayer" type="Node" index="0"]
 
 [node name="HUD" type="CanvasLayer" parent="." index="0"]
 
@@ -27,7 +46,21 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="ProgressLabel" type="Label" parent="HUD/StatsContainer" index="0"]
+[node name="Panel" type="Panel" parent="HUD/StatsContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="ProgressLabel" type="Label" parent="HUD/StatsContainer/Panel" index="0"]
 
 anchor_left = 1.0
 anchor_top = 0.5
@@ -48,7 +81,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="GoalLabel" type="Label" parent="HUD/StatsContainer" index="1"]
+[node name="GoalLabel" type="Label" parent="HUD/StatsContainer/Panel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.5
@@ -69,7 +102,25 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin" ]
 
-[node name="AlertContainer" type="Container" parent="HUD" index="1"]
+[node name="AlertTimer" type="Timer" parent="HUD" index="1"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = false
+autostart = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/AlertAnimation = SubResource( 1 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="AlertContainer" type="Container" parent="HUD/AnimationPlayer" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -87,7 +138,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="AlertLabel" type="Label" parent="HUD/AlertContainer" index="0"]
+[node name="AlertLabel" type="Label" parent="HUD/AnimationPlayer/AlertContainer" index="0"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -103,17 +154,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_colors/font_color = Color( 0.843484, 0.0269915, 0.0269915, 0.893529 )
 text = "DANGER!!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-
-[node name="AlertTimer" type="Timer" parent="HUD" index="2"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = false
+_sections_unfolded = [ "Material", "custom_colors" ]
 
 [connection signal="timeout" from="HUD/AlertTimer" to="HUD" method="_on_AlertTimer_timeout"]
 
