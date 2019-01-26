@@ -8,6 +8,7 @@ onready var wave = $wave
 func _ready():
 	spawn_collectibles(10)
 	spawn_obstacles(10)
+	wave.flow()
 
 func spawn(scene_path):
 	var new_obstacle = load(scene_path).instance()

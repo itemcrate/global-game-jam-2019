@@ -5,11 +5,6 @@ enum STATE {READY, FLOW, EBB}
 onready var current_state = STATE.READY
 onready var tween = $waveTween
 
-# Temporary draw override for visual representation of wave
-# Remove this when wave assets are added
-func _draw():
-	draw_rect(Rect2(Vector2(0,-224), Vector2(512, 448)), Color("ffffff"))
-
 func _ready():
 	pass
 
