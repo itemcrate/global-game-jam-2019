@@ -34,10 +34,9 @@ playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="waveColor" type="CanvasModulate" parent="." index="2"]
+[node name="waveSprite" type="Sprite" parent="." index="2"]
 
-color = Color( 0, 0, 0, 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Offset" ]
 
 [connection signal="body_entered" from="." to="." method="_on_wave_body_entered"]
 
