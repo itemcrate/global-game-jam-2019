@@ -6,6 +6,7 @@ onready var tilemap = $TileMap
 onready var wave = $wave
 
 func _ready():
+	GameData.reset()
 	spawn_collectibles(10)
 	spawn_obstacles(10)
 

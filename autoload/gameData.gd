@@ -29,3 +29,10 @@ func store(key, data):
 #
 func increment(key):
 	game_data[key] += 1
+	
+# Resets data model
+func reset():
+	self.game_data = {
+		"totalCollected": 0,
+		"totalRequired": 0
+	}
