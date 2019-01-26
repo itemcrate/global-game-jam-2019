@@ -26,11 +26,9 @@ func flow():
 # SIGNALS
 
 func _on_wave_body_entered(body):
-	# When character is created, update this functionality to:
-	# - Check if character is hiding in shell or not
-	# - If not hiding, sweep them away
-	# - Otherwise, leave them alone
-	print(body)
+	if body.is_in_group("player"):
+		if body.current_state != body.STATE.HIDE:
+			print("Bye crab")
 
 func _on_waveTween_tween_completed(object, key):
 	if current_state == STATE.FLOW:
