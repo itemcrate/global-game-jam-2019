@@ -2,7 +2,7 @@
 
 [ext_resource path="res://entities/HUD/HUD.gd" type="Script" id=1]
 
-[node name="HUDLayer" type="Node" index="0"]
+[node name="HUDLayer" type="Node"]
 
 [node name="HUD" type="CanvasLayer" parent="." index="0"]
 
