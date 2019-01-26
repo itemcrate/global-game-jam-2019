@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-# Temporary draw override for visual representation of player
+# Temporary draw override for visual representation of obstacle
 # Remove this when wave assets are added
 func _draw():
 	draw_circle(Vector2(0,0), 8, Color("693970"))

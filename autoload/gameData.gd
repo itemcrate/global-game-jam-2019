@@ -1,6 +1,9 @@
 extends Node
 
-var game_data = {}
+var game_data = {
+	"totalCollected": 0,
+	"totalRequired": 0
+}
 
 # Gets value from key value store
 #
@@ -8,7 +11,7 @@ var game_data = {}
 #
 # Returns value of any type
 func get(key):
-    return game_data[key]
+	return game_data[key]
 
 # Sets key value pairing in globally available dictionary
 #
@@ -18,4 +21,11 @@ func get(key):
 #
 # Returns nothing
 func store(key, data):
-    game_data[key] = data
+	game_data[key] = data
+
+# Increments value of key value store by one
+#
+# key - Identifier
+#
+func increment(key):
+	game_data[key] += 1
