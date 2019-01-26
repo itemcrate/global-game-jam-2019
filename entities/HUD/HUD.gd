@@ -1,12 +1,12 @@
 extends CanvasLayer
 
 func _ready():
-	update_progress("0/50")
+	update_progress()
 	set_goal_label("Purple Shell")
 	show_alert()
 
-func update_progress(score):
-	$StatsContainer/Panel/ProgressLabel.text = str(score)
+func update_progress():
+	$StatsContainer/Panel/ProgressLabel.text = str(GameData.get("totalCollected")) +"/"+ str(GameData.get("totalRequired"))
 
 func set_goal_label(text):
 	$StatsContainer/Panel/GoalLabel.text = "Goal: " + str(text)
