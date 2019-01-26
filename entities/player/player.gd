@@ -4,11 +4,6 @@ enum STATE {MOVE, HIDE}
 
 onready var current_state = STATE.MOVE
 
-# Temporary draw override for visual representation of player
-# Remove this when wave assets are added
-func _draw():
-	draw_rect(Rect2(Vector2(0,0), Vector2(16, 16)), Color("f79259"))
-
 func _ready():
 	set_physics_process(true)
 
