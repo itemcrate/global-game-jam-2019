@@ -10,8 +10,10 @@ config_version=3
 
 [application]
 
-config/name="2D Project"
+config/name="Happy Hermit Crab Turbo Adventure"
 run/main_scene="res://autoload/bootstrap/bootstrap.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="happy_hermit_crab"
 config/icon="res://assets/project-icon.png"
 
 [autoload]
