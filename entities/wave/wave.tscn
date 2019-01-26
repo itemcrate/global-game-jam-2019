@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 256, 224 )
 
-[node name="wave" type="Area2D"]
+[node name="wave" type="Area2D" index="0"]
 
 position = Vector2( 256, 672 )
 input_pickable = true
