@@ -7,8 +7,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 256, 224 )
 
-[node name="wave" type="Area2D" index="0"]
+[node name="wave" type="Area2D"]
 
+position = Vector2( 256, 672 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -17,7 +18,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Audio Bus", "Material", "Transform", "Visibility" ]
+_sections_unfolded = [ "Audio Bus", "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="waveCollider" type="CollisionShape2D" parent="." index="0"]
 

@@ -5,19 +5,22 @@ enum STATE {READY, FLOW, EBB}
 onready var current_state = STATE.READY
 onready var tween = $waveTween
 
-func _ready():
-	wave_flow()
+# Temporary draw override for visual representation of wave
+# Remove this when wave assets are added
+func _draw():
+	draw_rect(Rect2(Vector2(0,0), Vector2(512, 448)), Color("ffffff"))
 
-func wave_ebb():
+func _ready():
+	pass
+
+func ebb():
 	current_state = STATE.EBB
-	print("Wave position is", self.position)
-	tween.interpolate_property(self, "position", self.position, Vector2(0, 0), 3, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(self, "position", self.position, Vector2(0, 627), 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 
-func wave_flow():
+func flow():
 	current_state = STATE.FLOW
-	print("Wave position is", self.position)
-	tween.interpolate_property(self, "position", Vector2(0,0), Vector2(0, -224), 3, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.interpolate_property(self, "position", self.position, Vector2(0, 0), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 
 # SIGNALS
@@ -32,7 +35,7 @@ func _on_wave_body_entered(body):
 func _on_waveTween_tween_completed(object, key):
 	if current_state == STATE.FLOW:
 		current_state == STATE.EBB
-		wave_ebb()
+		ebb()
 
 	elif current_state == STATE.EBB:
 		current_state = STATE.READY
