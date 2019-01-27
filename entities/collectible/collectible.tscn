@@ -8,7 +8,7 @@ custom_solver_bias = 0.0
 radius = 8.0
 height = 16.0
 
-[node name="collectible" type="Area2D" index="0"]
+[node name="collectible" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -22,6 +22,8 @@ script = ExtResource( 1 )
 [node name="collectibleCollider" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
+
+[node name="collectibleSprite" type="Sprite" parent="." index="1"]
 
 [connection signal="body_entered" from="." to="." method="_on_collectible_body_entered"]
 

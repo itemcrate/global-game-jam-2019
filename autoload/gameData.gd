@@ -1,6 +1,9 @@
 extends Node
 
+onready var colors = ["blue", "green", "red"]
+
 var game_data = {
+	"colorRequired": "",
 	"totalCollected": 0,
 	"totalRequired": 50
 }
@@ -32,7 +35,9 @@ func increment(key):
 	
 # Resets data model
 func reset():
+	randomize()
 	self.game_data = {
+		"colorRequired": colors[randi() % (colors.size() - 1)],
 		"totalCollected": 0,
 		"totalRequired": 50
 	}
