@@ -9,6 +9,7 @@ custom_solver_bias = 0.0
 radius = 8.0
 
 [node name="obstacle" type="RigidBody2D" groups=[
+"object",
 "obstacles",
 ]]
 
