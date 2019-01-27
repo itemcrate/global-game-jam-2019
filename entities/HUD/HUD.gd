@@ -1,8 +1,13 @@
 extends CanvasLayer
 
+var winPlayed = false
+var losePlayed = false
+
 func _ready():
 	update_progress()
 	$AnimationPlayer/AlertContainer/AlertLabel.hide()
+	winPlayed = false
+	losePlayed = false
 
 func update_progress():
 	if $StatsContainer/Panel/GoalLabel.text != GameData.get("colorRequired"):
@@ -28,8 +33,14 @@ func check_end_state():
 	# Placeholder text/show hide
 	if GameState.get_state() == GameState.LOSE:
 		$LoseText.show()
+		if(!losePlayed):
+			losePlayed = true
+			$LoseAudioPlayer.play()
 	elif GameState.get_state() == GameState.WIN:
 		$WinText.show()
+		if(!winPlayed):
+			winPlayed = true
+			$WinAudioPlayer.play()
 
 func _physics_process(delta):
 	update_progress()

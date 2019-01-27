@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
-
+[gd_scene load_steps=5 format=2]
 [ext_resource path="res://entities/HUD/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/danger.png" type="Texture" id=2]
+[ext_resource path="res://assets/audio/win_music.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/lose_music.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -229,6 +230,24 @@ text = "Crap :C"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="WinAudioPlayer" type="AudioStreamPlayer" parent="HUD" index="5"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="LoseAudioPlayer" type="AudioStreamPlayer" parent="HUD" index="6"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="timeout" from="HUD/AlertTimer" to="HUD" method="_on_AlertTimer_timeout"]
 
