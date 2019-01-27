@@ -26,10 +26,15 @@ func get(key):
 func store(key, data):
 	game_data[key] = data
 
+# Decrements value of key value store by one
+#
+# key - Identifier
+func decrement(key):
+	game_data[key] -= 1
+
 # Increments value of key value store by one
 #
 # key - Identifier
-#
 func increment(key):
 	game_data[key] += 1
 	
