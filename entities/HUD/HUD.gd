@@ -1,25 +1,21 @@
 extends CanvasLayer
 
+onready var color_sprite = $StatsContainer/HBox/Color
+onready var progress_label = $StatsContainer/HBox/ProgressLabel
+
 var winPlayed = false
 var losePlayed = false
 
 func _ready():
 	update_progress()
-	$AnimationPlayer/AlertContainer/AlertLabel.hide()
 	winPlayed = false
 	losePlayed = false
 
 func update_progress():
-	if $StatsContainer/Panel/GoalLabel.text != GameData.get("colorRequired"):
-		set_goal_label(GameData.get("colorRequired").capitalize())
-		
-	$StatsContainer/Panel/ProgressLabel.text = str(GameData.get("totalCollected")) +"/"+ str(GameData.get("totalRequired"))
-	
+	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
+	color_sprite.set_texture(load("res://assets/sprites/" + GameData.get("colorRequired") + "_hud_icon.png"))
 	if GameData.get("totalCollected") == GameData.get("totalRequired"):
 		GameState.set_state(GameState.WIN)
-	
-func set_goal_label(text):
-	$StatsContainer/Panel/GoalLabel.text = "Goal: " + str(text)
 
 func show_alert():
 	$AnimationPlayer/AlertContainer/AlertSprite.show()
