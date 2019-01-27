@@ -73,6 +73,15 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[node name="HazardTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 30.0
+one_shot = false
+autostart = false
+
 [connection signal="finished" from="DangerAudioPlayer" to="." method="_on_DangerAudioPlayer_finished"]
+
+[connection signal="timeout" from="HazardTimer" to="." method="_on_HazardTimer_timeout"]
 
 
