@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/audio/danger_music.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/audio/warning_whistle.wav" type="AudioStream" id=8]
 
-[node name="Overworld" type="Node"]
+[node name="Overworld" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -58,7 +58,7 @@ bus = "Master"
 [node name="DangerAudioPlayer" type="AudioStreamPlayer" parent="." index="5"]
 
 stream = ExtResource( 7 )
-volume_db = 0.0
+volume_db = 3.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
@@ -67,7 +67,7 @@ bus = "Master"
 [node name="WarningAudioPlayer" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 8 )
-volume_db = 0.0
+volume_db = -5.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
