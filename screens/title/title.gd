@@ -4,7 +4,6 @@ export (PackedScene) var next_scene
 
 func _ready():
 	GameState.set_state(GameState.READY)
-	GameData.reset()
 	$TitleAudioPlayer.play()
 	
 func _input(event):

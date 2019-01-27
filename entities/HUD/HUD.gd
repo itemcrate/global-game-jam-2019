@@ -2,10 +2,12 @@ extends CanvasLayer
 
 func _ready():
 	update_progress()
-	set_goal_label(GameData.get("colorRequired").capitalize() + " Shell")
 	$AnimationPlayer/AlertContainer/AlertLabel.hide()
 
 func update_progress():
+	if $StatsContainer/Panel/GoalLabel.text != GameData.get("colorRequired"):
+		set_goal_label(GameData.get("colorRequired").capitalize())
+		
 	$StatsContainer/Panel/ProgressLabel.text = str(GameData.get("totalCollected")) +"/"+ str(GameData.get("totalRequired"))
 	
 	if GameData.get("totalCollected") == GameData.get("totalRequired"):

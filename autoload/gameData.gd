@@ -1,9 +1,9 @@
 extends Node
 
-onready var colors = ["blue", "green", "red"]
+var colors = ["blue", "green", "red"]
 
 var game_data = {
-	"colorRequired": "",
+	"colorRequired": colors[randi() % (colors.size() - 1)],
 	"totalCollected": 0,
 	"totalRequired": 50
 }
@@ -37,7 +37,7 @@ func increment(key):
 func reset():
 	randomize()
 	self.game_data = {
-		"colorRequired": colors[randi() % (colors.size() - 1)],
+		"colorRequired": colors[randi() % (colors.size())],
 		"totalCollected": 0,
 		"totalRequired": 50
 	}
