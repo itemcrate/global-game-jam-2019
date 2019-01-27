@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/overworld/Overworld.gd" type="Script" id=1]
 [ext_resource path="res://assets/tileset/BeachTileset.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://entities/wave/wave.tscn" type="PackedScene" id=4]
 [ext_resource path="res://entities/HUD/HUD.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/audio/happy_music.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/audio/danger_music.wav" type="AudioStream" id=7]
 
 [node name="Overworld" type="Node" index="0"]
 
@@ -52,5 +53,16 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[node name="DangerAudioPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="finished" from="DangerAudioPlayer" to="." method="_on_DangerAudioPlayer_finished"]
 
 

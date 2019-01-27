@@ -17,6 +17,7 @@ func flow():
 	current_state = STATE.FLOW
 	tween.interpolate_property(self, "position", self.position, Vector2(256, 224), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+	$WaveAudioPlayer.play()
 
 # SIGNALS
 
