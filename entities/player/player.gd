@@ -21,12 +21,11 @@ func movement_loop():
 	if current_state == STATE.MOVE:
 		motion = move_direction.normalized() * SPEED
 	else:
-		motion = 0
+		motion = move_direction.normalized() * 0
 	
 	move_and_slide(motion, Vector2(0,0))
 
 func _input(event):
-	# HIDING
 	if event.is_action_pressed("ui_select"):
 		if (current_state == STATE.MOVE):
 			current_state = STATE.HIDE

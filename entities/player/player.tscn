@@ -8,11 +8,10 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" index="0" groups=[
+[node name="player" type="KinematicBody2D" groups=[
 "player",
 ]]
 
-z_as_relative = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
