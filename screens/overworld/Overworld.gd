@@ -4,15 +4,25 @@ onready var collectible_path = "res://entities/collectible/collectible.tscn"
 onready var obstacle_path = "res://entities/obstacle/obstacle.tscn"
 onready var tilemap = $TileMap
 onready var wave = $wave
+onready var bg_audio_pos = 0.0
 
 func _ready():
 	GameData.reset()
 	spawn_collectibles(10)
 	spawn_obstacles(10)
+	$BackgroundAudioPlayer.play()
 	
 func _input(event):
 	if event.is_action_pressed("ui_select"):
+		start_danger_event()
 		wave.flow()
+
+func start_danger_event():
+		$HUDLayer/HUD.show_alert()
+		bg_audio_pos = $BackgroundAudioPlayer.get_playback_position()
+		$BackgroundAudioPlayer.stop()
+		$DangerAudioPlayer.play()
+		yield($HUDLayer/HUD/AlertTimer, "timeout")
 
 func spawn(scene_path):
 	var new_obstacle = load(scene_path).instance()
@@ -31,3 +41,8 @@ func spawn_collectibles(number):
 func spawn_obstacles(number):
 	for n in range(number):
 		spawn(obstacle_path)
+
+
+func _on_DangerAudioPlayer_finished():
+	# start playing bg audio again
+	$BackgroundAudioPlayer.play(bg_audio_pos)
