@@ -1,16 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://screens/victory/Victory.gd" type="Script" id=1]
-[ext_resource path="res://assets/font/FutilePro.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/sprites/victory_crab.png" type="Texture" id=3]
-[ext_resource path="res://assets/audio/win_music.wav" type="AudioStream" id=4]
+[ext_resource path="res://screens/title/title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/font/FutilePro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/sprites/victory_crab.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/win_music.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 72
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -18,10 +19,10 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 24
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Victory" type="CanvasLayer"]
+[node name="Victory" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -29,6 +30,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 script = ExtResource( 1 )
+next_scene = ExtResource( 2 )
 
 [node name="Control" type="Control" parent="." index="0"]
 
@@ -114,7 +116,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 _sections_unfolded = [ "Rect" ]
@@ -156,7 +158,7 @@ playback/speed = 1.0
 
 [node name="VictoryAudio" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = true

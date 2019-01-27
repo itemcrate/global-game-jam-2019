@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+export (PackedScene) var next_scene
+
 onready var instructions = $Control/Container/Instructions
 onready var tween = $Tween
 
@@ -10,7 +12,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_select") && music_done:
-		GameState.set_scene("res://screens/title/Title.tscn")
+		GameState.set_scene(next_scene, true)
 
 # SIGNALS
 
