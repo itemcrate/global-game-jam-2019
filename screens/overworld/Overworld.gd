@@ -9,7 +9,10 @@ func _ready():
 	GameData.reset()
 	spawn_collectibles(10)
 	spawn_obstacles(10)
-	wave.flow()
+	
+func _input(event):
+	if event.is_action_pressed("ui_select"):
+		wave.flow()
 
 func spawn(scene_path):
 	var new_obstacle = load(scene_path).instance()

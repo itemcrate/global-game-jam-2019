@@ -10,12 +10,12 @@ func _ready():
 
 func ebb():
 	current_state = STATE.EBB
-	tween.interpolate_property(self, "position", self.position, Vector2(0, 672), 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
+	tween.interpolate_property(self, "position", self.position, Vector2(256, 672), 4, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	tween.start()
 
 func flow():
 	current_state = STATE.FLOW
-	tween.interpolate_property(self, "position", self.position, Vector2(0, 224), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween.interpolate_property(self, "position", self.position, Vector2(256, 224), 4, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 
 # SIGNALS
