@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ), Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ) ]
 }
 
-[node name="HUDLayer" type="Node" index="0"]
+[node name="HUDLayer" type="Node"]
 
 [node name="HUD" type="CanvasLayer" parent="." index="0"]
 
@@ -127,9 +127,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -128.0
-margin_top = -32.0
+margin_top = -34.0
 margin_right = 128.0
-margin_bottom = 32.0
+margin_bottom = 30.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
