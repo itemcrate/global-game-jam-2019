@@ -1,16 +1,24 @@
 extends Area2D
 
-# Temporary draw override for visual representation of collectible
-# Remove this when wave assets are added
-func _draw():
-	draw_circle(Vector2(0,0), 8, Color("A8E365"))
+onready var sprite = $collectibleSprite
+onready var texture_base = "res://assets/sprites/"
+
+var color
+var color_options = ["blue", "green", "red"]
+var texture
 
 func _ready():
-	pass
+	# Randomly assign a collectible value
+	randomize()
+	var random_int = randi() % (color_options.size() - 1)
+	color = color_options[random_int]
+	texture = load(texture_base + color + "_pickup" + String(random_int + 1) + ".png")
+	sprite.texture = texture
 
 # SIGNALS
 
 func _on_collectible_body_entered(body):
 	if body.is_in_group("player"):
-		GameData.increment("totalCollected")
+		if self.color == GameData.get("colorRequired"):
+			GameData.increment("totalCollected")
 		self.queue_free()
