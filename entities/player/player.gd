@@ -48,6 +48,7 @@ func _input(event):
 			if (current_state == STATE.MOVE):
 				current_state = STATE.HIDING
 				anim_switch("hide")
+				$HideAudioPlayer.play()
 			else:
 				anim_switch("hide", true)
 

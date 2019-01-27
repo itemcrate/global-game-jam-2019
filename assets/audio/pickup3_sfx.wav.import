@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pickup3_sfx.wav-0dd6c6806c6f5bf01fe3fbd2e80366fc.sample"
+
+[deps]
+
+source_file="res://assets/audio/pickup3_sfx.wav"
+dest_files=[ "res://.import/pickup3_sfx.wav-0dd6c6806c6f5bf01fe3fbd2e80366fc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
