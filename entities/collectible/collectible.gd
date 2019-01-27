@@ -10,7 +10,7 @@ var texture
 func _ready():
 	# Randomly assign a collectible value
 	randomize()
-	var random_int = randi() % (color_options.size() - 1)
+	var random_int = randi() % color_options.size()
 	color = color_options[random_int]
 	texture = load(texture_base + color + "_pickup" + String(random_int + 1) + ".png")
 	sprite.texture = texture
