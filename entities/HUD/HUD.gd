@@ -17,13 +17,12 @@ func set_goal_label(text):
 	$StatsContainer/Panel/GoalLabel.text = "Goal: " + str(text)
 
 func show_alert():
-	$AnimationPlayer/AlertContainer/AlertLabel.text = "DANGER!"
-	$AnimationPlayer/AlertContainer/AlertLabel.show()
+	$AnimationPlayer/AlertContainer/AlertSprite.show()
 	$AnimationPlayer.play("AlertAnimation")
 	$AlertTimer.start()
 
 func _on_AlertTimer_timeout():
-	$AnimationPlayer/AlertContainer/AlertLabel.hide()
+	$AnimationPlayer/AlertContainer/AlertSprite.hide()
 
 func check_end_state():
 	# Placeholder text/show hide
