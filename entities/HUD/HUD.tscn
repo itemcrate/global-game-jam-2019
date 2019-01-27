@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ), Color( 0, 0, 0, 0.237569 ), Color( 0.980392, 0.0313726, 0.0313726, 1 ) ]
 }
 
-[node name="HUDLayer" type="Node" index="0"]
+[node name="HUDLayer" type="Node"]
 
 [node name="HUD" type="CanvasLayer" parent="." index="0"]
 

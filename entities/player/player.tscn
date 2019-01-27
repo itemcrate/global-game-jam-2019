@@ -12,11 +12,13 @@ extents = Vector2( 10, 10 )
 "player",
 ]]
 
+z_as_relative = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Z Index", "collision" ]
 
 [node name="playerSprite" type="Sprite" parent="." index="0"]
 
@@ -26,7 +28,7 @@ _sections_unfolded = [ "Offset", "Region", "Visibility" ]
 [node name="playerCollider" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
