@@ -31,8 +31,9 @@ func _on_waveTween_tween_completed(object, key):
 		current_state == STATE.EBB
 		ebb()
 		# The below assumes the wave is child of overworld
-		get_parent().spawn_obstacles(5)
-		get_parent().spawn_collectibles(5)
+		get_parent().clear_objects()
+		get_parent().spawn_obstacles(15)
+		get_parent().spawn_collectibles(15)
 
 	elif current_state == STATE.EBB:
 		current_state = STATE.READY

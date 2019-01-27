@@ -12,7 +12,7 @@ func _ready():
 	randomize()
 	var random_int = randi() % color_options.size()
 	color = color_options[random_int]
-	texture = load(texture_base + color + "_pickup" + String(random_int + 1) + ".png")
+	texture = load(texture_base + color + "_pickup" + String(randi() % 3 + 1) + ".png")
 	sprite.texture = texture
 
 # SIGNALS
