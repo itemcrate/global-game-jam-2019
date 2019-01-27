@@ -4,12 +4,10 @@ onready var color_sprite = $StatsContainer/HBox/Color
 onready var progress_label = $StatsContainer/HBox/ProgressLabel
 
 var winPlayed = false
-var losePlayed = false
 
 func _ready():
 	update_progress()
 	winPlayed = false
-	losePlayed = false
 
 func update_progress():
 	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
@@ -28,10 +26,7 @@ func _on_AlertTimer_timeout():
 func check_end_state():
 	# Placeholder text/show hide
 	if GameState.get_state() == GameState.LOSE:
-		$LoseText.show()
-		if(!losePlayed):
-			losePlayed = true
-			$LoseAudioPlayer.play()
+		GameState.set_scene("res://screens/lose/Lose.tscn")
 	elif GameState.get_state() == GameState.WIN:
 		$WinText.show()
 		if(!winPlayed):
