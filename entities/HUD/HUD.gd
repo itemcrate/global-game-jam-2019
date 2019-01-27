@@ -10,16 +10,10 @@ func _ready():
 	alert_label.hide()
 
 func update_progress():
-	#if $StatsContainer/Panel/GoalLabel.text != GameData.get("colorRequired"):
-		#set_goal_label(GameData.get("colorRequired").capitalize())
-		
-	#$StatsContainer/Panel/ProgressLabel.text = str(GameData.get("totalCollected")) +"/"+ str(GameData.get("totalRequired"))
 	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
+
 	if GameData.get("totalCollected") == GameData.get("totalRequired"):
 		GameState.set_state(GameState.WIN)
-	
-#func set_goal_label(text):
-	#$StatsContainer/Panel/GoalLabel.text = "Goal: " + str(text)
 
 func show_alert():
 	alert_label.text = "DANGER!"
