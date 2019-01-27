@@ -10,7 +10,7 @@ func _ready():
 
 func update_progress():
 	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
-	color_sprite.set_texture(load("res://assets/sprites/" + GameData.get("colorRequired") + "_pickup1.png"))
+	color_sprite.set_texture(load("res://assets/sprites/" + GameData.get("colorRequired") + "_hud_icon.png"))
 	if GameData.get("totalCollected") == GameData.get("totalRequired"):
 		GameState.set_state(GameState.WIN)
 
