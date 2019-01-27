@@ -3,11 +3,8 @@ extends CanvasLayer
 onready var color_sprite = $StatsContainer/HBox/Color
 onready var progress_label = $StatsContainer/HBox/ProgressLabel
 
-var winPlayed = false
-
 func _ready():
 	update_progress()
-	winPlayed = false
 
 func update_progress():
 	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
@@ -28,10 +25,7 @@ func check_end_state():
 	if GameState.get_state() == GameState.LOSE:
 		GameState.set_scene("res://screens/lose/Lose.tscn")
 	elif GameState.get_state() == GameState.WIN:
-		$WinText.show()
-		if(!winPlayed):
-			winPlayed = true
-			$WinAudioPlayer.play()
+		GameState.set_scene("res://screens/victory/Victory.tscn")
 
 func _physics_process(delta):
 	update_progress()
