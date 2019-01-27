@@ -3,12 +3,10 @@ extends Node
 
 # Example of a global game state
 enum GAME_STATE {
-    START,
-    LOADING,
-    READY,
-    RUNNING,
-    PAUSED,
-    EXIT
+	START,
+	READY,
+	WIN,
+	LOSE
 }
 
 var current_scene = null 
@@ -42,7 +40,7 @@ func set_scene(scene, preloaded = false):
     else:
         new_scene = scene
 
-    current_scene.queue_free()
+    current_scene.call_deferred("free")
     current_scene = new_scene.instance()
     get_tree().get_root().call_deferred("add_child", current_scene)
 
