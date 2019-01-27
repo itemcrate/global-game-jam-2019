@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+onready var collider = $obstacleCollider
+
 # Temporary draw override for visual representation of obstacle
 # Remove this when wave assets are added
 func _draw():
@@ -8,14 +10,14 @@ func _draw():
 func _ready():
 	pass
 
-func _integrate_forces(state):
-
-	if linear_velocity.x < 0:
-		linear_velocity.x += 1
-	elif linear_velocity.x > 0:
-		linear_velocity.x -= 1
-
-	if linear_velocity.y < 0:
-		linear_velocity.y += 1
-	elif linear_velocity.y > 0:
-		linear_velocity.y -= 1
+#func _integrate_forces(state):
+#	print(self.get_colliding_bodies())
+#	if linear_velocity.x < 0:
+#		linear_velocity.x += 1
+#	elif linear_velocity.x > 0:
+#		linear_velocity.x -= 1
+#
+#	if linear_velocity.y < 0:
+#		linear_velocity.y += 1
+#	elif linear_velocity.y > 0:
+#		linear_velocity.y -= 1
