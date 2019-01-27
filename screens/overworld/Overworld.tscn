@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/audio/danger_music.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/audio/warning_whistle.wav" type="AudioStream" id=8]
 
-[node name="Overworld" type="Node" index="0"]
+[node name="Overworld" type="Node"]
 
 script = ExtResource( 1 )
 
