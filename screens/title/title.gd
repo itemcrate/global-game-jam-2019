@@ -3,6 +3,7 @@ extends Node
 export (PackedScene) var next_scene
 
 func _ready():
+	GameData.reset()
 	GameState.set_state(GameState.READY)
 	$TitleAudioPlayer.play()
 	

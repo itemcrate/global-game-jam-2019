@@ -11,7 +11,6 @@ onready var hazardTimer_min = 10
 onready var hazardTimer_max = 15
 
 func _ready():
-	GameData.reset()
 	spawn_collectibles(15)
 	spawn_obstacles(15)
 	$BackgroundAudioPlayer.play()
