@@ -13,8 +13,10 @@ func _ready():
 	$BackgroundAudioPlayer.play()
 	
 func _input(event):
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_select") && GameState.get_state() == GameState.READY:
 		start_danger_event("wave")
+	elif event.is_action_pressed("ui_select"):
+		GameState.set_scene("res://screens/title/title.tscn")
 
 func start_danger_event(hazard):
 		$HUDLayer/HUD.show_alert()

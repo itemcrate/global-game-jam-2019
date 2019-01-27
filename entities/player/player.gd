@@ -6,14 +6,18 @@ const SPEED = 70
 
 var move_direction = Vector2(0,0)
 
+onready var sprite = $playerSprite
 onready var current_state = STATE.MOVE
 
 func _ready():
 	set_physics_process(true)
 
 func _physics_process(delta):
-	controls_loop()
-	movement_loop()
+	if GameState.get_state() == GameState.LOSE:
+		sprite.hide()
+	elif GameState.get_state() == GameState.READY:	
+		controls_loop()
+		movement_loop()
 
 func movement_loop():
 	var motion 
@@ -26,11 +30,12 @@ func movement_loop():
 	move_and_slide(motion, Vector2(0,0))
 
 func _input(event):
-	if event.is_action_pressed("ui_select"):
-		if (current_state == STATE.MOVE):
-			current_state = STATE.HIDE
-		else:
-			current_state = STATE.MOVE
+	if GameState.get_state() == GameState.READY:
+		if event.is_action_pressed("ui_select"):
+			if (current_state == STATE.MOVE):
+				current_state = STATE.HIDE
+			else:
+				current_state = STATE.MOVE
 
 func controls_loop():
 	var LEFT = Input.is_action_pressed("ui_left")

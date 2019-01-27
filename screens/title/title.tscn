@@ -18,7 +18,7 @@ use_filter = false
 font_data = ExtResource( 9 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="title" type="Node" index="0"]
+[node name="title" type="Node"]
 
 script = ExtResource( 1 )
 next_scene = ExtResource( 2 )
