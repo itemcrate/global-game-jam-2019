@@ -14,15 +14,18 @@ func _ready():
 	
 func _input(event):
 	if event.is_action_pressed("ui_select"):
-		start_danger_event()
-		wave.flow()
+		start_danger_event("wave")
 
-func start_danger_event():
+func start_danger_event(hazard):
 		$HUDLayer/HUD.show_alert()
 		bg_audio_pos = $BackgroundAudioPlayer.get_playback_position()
+		$WarningAudioPlayer.play()
+		yield($WarningAudioPlayer, "finished")
 		$BackgroundAudioPlayer.stop()
 		$DangerAudioPlayer.play()
 		yield($HUDLayer/HUD/AlertTimer, "timeout")
+		if(hazard == "wave"):
+			wave.flow()
 
 func spawn(scene_path):
 	var new_obstacle = load(scene_path).instance()
