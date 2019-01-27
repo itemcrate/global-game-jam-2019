@@ -24,7 +24,7 @@ func flow():
 func _on_wave_body_entered(body):
 	if body.is_in_group("player"):
 		if body.current_state != body.STATE.HIDE:
-			print("Bye crab")
+			GameState.set_state(GameState.LOSE)
 
 func _on_waveTween_tween_completed(object, key):
 	if current_state == STATE.FLOW:

@@ -2,7 +2,7 @@ extends Node
 
 var game_data = {
 	"totalCollected": 0,
-	"totalRequired": 50
+	"totalRequired": 2
 }
 
 # Gets value from key value store
@@ -34,5 +34,5 @@ func increment(key):
 func reset():
 	self.game_data = {
 		"totalCollected": 0,
-		"totalRequired": 50
+		"totalRequired": 2
 	}
