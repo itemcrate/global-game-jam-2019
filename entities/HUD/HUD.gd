@@ -2,7 +2,7 @@ extends CanvasLayer
 
 func _ready():
 	update_progress()
-	set_goal_label("Purple Shell")
+	set_goal_label(GameData.get("colorRequired").capitalize() + " Shell")
 	$AnimationPlayer/AlertContainer/AlertLabel.hide()
 
 func update_progress():
