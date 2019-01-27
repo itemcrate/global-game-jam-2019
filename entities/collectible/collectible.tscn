@@ -8,7 +8,10 @@ custom_solver_bias = 0.0
 radius = 8.0
 height = 16.0
 
-[node name="collectible" type="Area2D"]
+[node name="collectible" type="Area2D" groups=[
+"object",
+"collectibles",
+]]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

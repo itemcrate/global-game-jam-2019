@@ -6,23 +6,21 @@ onready var progress_label = $StatsContainer/HBox/ProgressLabel
 
 func _ready():
 	update_progress()
-	color_sprite.set_texture(load("res://assets/sprites/" + GameData.get("colorRequired") + "_pickup1.png"))
 	alert_label.hide()
 
 func update_progress():
 	progress_label.text = str(GameData.get("totalRequired") - GameData.get("totalCollected"))
-
+	color_sprite.set_texture(load("res://assets/sprites/" + GameData.get("colorRequired") + "_pickup1.png"))
 	if GameData.get("totalCollected") == GameData.get("totalRequired"):
 		GameState.set_state(GameState.WIN)
 
 func show_alert():
-	alert_label.text = "DANGER!"
-	alert_label.show()
+	$AnimationPlayer/AlertContainer/AlertSprite.show()
 	$AnimationPlayer.play("AlertAnimation")
 	$AlertTimer.start()
 
 func _on_AlertTimer_timeout():
-	alert_label.hide()
+	$AnimationPlayer/AlertContainer/AlertSprite.hide()
 
 func check_end_state():
 	# Placeholder text/show hide

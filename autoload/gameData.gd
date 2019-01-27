@@ -3,9 +3,9 @@ extends Node
 var colors = ["blue", "green", "red"]
 
 var game_data = {
-	"colorRequired": colors[randi() % (colors.size() - 1)],
+	"colorRequired": colors[randi() % (colors.size())],
 	"totalCollected": 0,
-	"totalRequired": 50
+	"totalRequired": 15
 }
 
 # Gets value from key value store
@@ -44,5 +44,5 @@ func reset():
 	self.game_data = {
 		"colorRequired": colors[randi() % (colors.size())],
 		"totalCollected": 0,
-		"totalRequired": 50
+		"totalRequired": 15
 	}
